@@ -1,0 +1,37 @@
+server:
+  port: 8084 # 端口
+
+spring:
+  application:
+    name: food-dinner-service # 应用名
+  #    password: 123456
+  # swagger
+  swagger:
+    base-package: com.softeem.oauth2
+    title: 软帝美食社交食客API接口文档
+
+# Oauth2
+# Oauth2 客户端信息
+
+client:
+  oauth2:
+    client-id: appId
+    secret: 123456
+    scope: api
+    grant-type: password
+
+# 配置 Eureka Server 注册中心
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+
+# 指标监控健康检查
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" # 暴露的端点

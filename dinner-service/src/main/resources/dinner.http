@@ -1,0 +1,5 @@
+### 测试登录
+POST http://localhost:8084/dinner/login
+Content-Type: application/x-www-form-urlencoded
+
+username=test&&password=123456
