@@ -37,6 +37,7 @@ public class UserService implements UserDetailsService {
         SignInIdentity signInIdentity = new SignInIdentity();
         //工具类，属性拷贝
         BeanUtil.copyProperties(diners, signInIdentity);
+
         return signInIdentity;
     }
 }

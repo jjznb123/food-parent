@@ -1,0 +1,15 @@
+### 测试鉴权过滤器
+GET http://localhost:8084/dinner/test?access_token=836dbd1b-a2f7-4320-bdbe-ca47074c1d73
+Accept: application/json
+
+### 测试 发布代金卷活动
+POST http://localhost:8085/seckill/add?access_token=dd0c0e14-867e-4d83-9003-b31557120ec3
+Content-Type: application/json
+
+{
+  "id": 0,
+  "fkVoucherId": 1,
+  "amount": 100,
+  "startTime": "2023-5-6 12:30:00",
+  "endTime": "2023-5-18 12:30:00"
+}

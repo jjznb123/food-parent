@@ -13,6 +13,9 @@
         <module>food-common</module>
         <module>food-register</module>
         <module>food-oauth2-server</module>
+        <module>food-gateway</module>
+        <module>food-seckill</module>
+        <module>food-follow</module>
     </modules>
 
     <!-- 可以集中定义依赖资源的版本信息 -->

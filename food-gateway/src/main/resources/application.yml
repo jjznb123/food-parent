@@ -1,0 +1,41 @@
+server:
+  port: 8089
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+spring:
+  application:
+    name: food-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          lower-case-service-id: true
+      routes:
+        - id: food-diners
+          uri: lb://food-dinner-service
+          predicates:
+            - Path=/dinner/**
+        - id: food-oauth2-server
+          uri: lb://food-oauth2-server
+          predicates:
+            - Path=/oauth/**
+        - id: food-seckill
+          uri: lb://food-seckill
+          predicates:
+            - Path=/seckill/**
+        - id: food-follow
+          uri: lb://food-follow
+          predicates:
+            - Path=/follow/**
+secure:
+  ignore:
+    urls:
+      - /actuator/**
+      - /oauth/**
+      - /dinner/login
+      - /dinner/register
+      - /dinner/checkPhone
